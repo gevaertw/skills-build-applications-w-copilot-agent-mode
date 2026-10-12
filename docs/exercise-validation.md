@@ -1,6 +1,6 @@
 # Exercise validation
 
-Run the repository-owned validation before publishing:
+Run the repository-owned validation before publishing: 
 
 ```bash
 node .github/scripts/validate-exercise.mjs
