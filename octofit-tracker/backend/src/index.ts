@@ -1,14 +1,8 @@
-import express from 'express';
+import mongoose from 'mongoose';
+import { startServer } from './server.js';
 
-const app = express();
-const port = Number(process.env.PORT) || 8000;
-
-app.use(express.json());
-
-app.get('/api/health', (_request, response) => {
-  response.json({ status: 'ok' });
-});
-
-app.listen(port, () => {
-  console.log(`OctoFit API listening on port ${port}`);
+void startServer().catch((error: unknown) => {
+  console.error('Error starting OctoFit API:', error);
+  process.exitCode = 1;
+  void mongoose.disconnect();
 });
